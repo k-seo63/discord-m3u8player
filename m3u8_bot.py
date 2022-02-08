@@ -63,7 +63,7 @@ async def on_message(message):
 # Loop every 15 seconds
 @tasks.loop(seconds=15)
 async def scheduled_radio():
-    # 6:25
+    # connect at 6:25
     if datetime.now().hour==6 and datetime.now().minute==25:
         global voice_client
         if voice_client is None:
@@ -71,7 +71,7 @@ async def scheduled_radio():
             source = discord.FFmpegPCMAudio(API_URL, **FFMPEG_OPTIONS)
             voice_client.play(source)
 
-    # 6:45
+    # connect at 6:45
     if datetime.now().hour==6 and datetime.now().minute==45:
         if voice_client is not None:
             voice_client.stop()
